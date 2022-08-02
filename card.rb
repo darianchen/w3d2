@@ -2,6 +2,14 @@ class Card
 
     attr_reader :value
 
+    def self.create_pair(value)
+        Card_1 = Card.new(value)
+        Card_2 = Card.new(value)
+
+        return [Card_1, Card_2]
+    end
+
+
     def initialize(value)
         @value = value
         @face_up = false
