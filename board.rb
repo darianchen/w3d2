@@ -3,7 +3,12 @@ require_relative "card.rb"
 #require "byebug"
 
 
+
 class Board
+
+attr_reader :grid
+
+
 
     @@library = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
@@ -63,8 +68,13 @@ class Board
         if @grid[row][col].display == "_"
 
             @grid[row][col].reveal
+            return @grid[row][col].value
         end
+        false
     end
+
+
+
 
 
 
