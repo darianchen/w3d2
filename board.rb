@@ -1,14 +1,8 @@
 require_relative "card.rb"
 
-#require "byebug"
-
-
-
 class Board
 
 attr_reader :grid
-
-
 
     @@library = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
@@ -28,9 +22,7 @@ attr_reader :grid
             pairs << Card.create_pair(value)
         end
 
-        
         pairs.flatten!.shuffle!
-
         
         @grid.map! do |row|
             row.map! do |col|
@@ -73,9 +65,17 @@ attr_reader :grid
         false
     end
 
+    def cheat
 
+        print "  " + (0...@grid.length).to_a.join(" ")
+        puts
 
+        @grid.each_with_index do |row, idx|
 
+               print "#{idx} " + row.map {|card| card.value}.join(" ")
+               puts
+        end
 
+    end
 
 end

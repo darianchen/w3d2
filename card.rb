@@ -1,5 +1,4 @@
 class Card
-
     attr_reader :value
 
     def self.create_pair(value)
@@ -8,7 +7,6 @@ class Card
 
         return [card_1, card_2]
     end
-
 
     def initialize(value)
         @value = value
