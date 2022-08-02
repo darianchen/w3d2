@@ -7,15 +7,12 @@ attr_reader :grid
     @@library = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
     def initialize(size=4)
-
         @num_spaces = size ** 2
         @grid = Array.new(size) {Array.new(size)}
-        
         @cards = []
     end
 
     def populate
-
         pairs = []
         (@num_spaces/2).times do
             value = @@library.delete(@@library.sample)
@@ -34,7 +31,6 @@ attr_reader :grid
     end
 
     def render
-
         print "  " + (0...@grid.length).to_a.join(" ")
         puts
 
@@ -43,7 +39,6 @@ attr_reader :grid
                print "#{idx} " + row.map {|card| card.display}.join(" ")
                puts
         end
-
     end
 
     def won?
@@ -75,7 +70,5 @@ attr_reader :grid
                print "#{idx} " + row.map {|card| card.value}.join(" ")
                puts
         end
-
     end
-
 end
