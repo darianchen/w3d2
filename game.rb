@@ -3,7 +3,11 @@
 class Game
 
     def initialize
-        @board = Board.new
+        puts "Choose a size!"
+        
+        size = gets.chomp.to_i
+
+        @board = Board.new(size)
         @board.populate
     end
 
@@ -31,6 +35,7 @@ class Game
             begin
             guess_2 = gets.chomp.split.map(&:to_i)
 
+            raise ArgumentError.new if guess_2 == guess_1
             second_guess = @board.reveal(guess_2)
             rescue
                 puts "Please enter a valid position"
