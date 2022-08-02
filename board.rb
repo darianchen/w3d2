@@ -1,5 +1,8 @@
 require_relative "card.rb"
 
+#require "byebug"
+
+
 class Board
 
     @@library = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
@@ -16,10 +19,25 @@ class Board
 
         pairs = []
         (@num_spaces/2).times do
-
             value = @@library.delete(@@library.sample)
-            pairs << Card.create_pairs(value)
+            pairs << Card.create_pair(value)
         end
+
+        
+        pairs.flatten!.shuffle!
+
+        
+        @grid.map! do |row|
+            row.map! do |col|
+                card = pairs.sample
+                pairs.delete_if { |ele| ele.object_id == card.object_id}
+                card
+            end
+        end
+
+
+
+
     end
 
 
@@ -29,7 +47,6 @@ class Board
 
 
 
-    end
 
 
 
