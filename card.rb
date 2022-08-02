@@ -19,7 +19,7 @@ class Card
         if @face_up
             return @value
         else
-            false
+            return '_'
         end
     end
 

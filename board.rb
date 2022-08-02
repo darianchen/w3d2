@@ -34,19 +34,37 @@ class Board
                 card
             end
         end
+    end
 
+    def render
 
+        print "  " + (0...@grid.length).to_a.join(" ")
+        puts
 
+        @grid.each_with_index do |row, idx|
+
+               print "#{idx} " + row.map {|card| card.display}.join(" ")
+               puts
+        end
 
     end
 
+    def won?
+        return @grid.all? do |row|
+            row.all? do |card|
+                card.display != "_"
+            end
+        end
+    end
 
+    def reveal(pos)
+        row, col = pos
 
+        if @grid[row][col].display == "_"
 
-
-
-
-
+            @grid[row][col].reveal
+        end
+    end
 
 
 
