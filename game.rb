@@ -1,12 +1,9 @@
     require_relative "board.rb"
 
 class Game
-
     def initialize
         puts "Choose a size!"
-        
         size = gets.chomp.to_i
-
         @board = Board.new(size)
         @board.populate
     end

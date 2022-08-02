@@ -9,7 +9,6 @@ attr_reader :grid
     def initialize(size=4)
         @num_spaces = size ** 2
         @grid = Array.new(size) {Array.new(size)}
-        @cards = []
     end
 
     def populate
@@ -51,9 +50,7 @@ attr_reader :grid
 
     def reveal(pos)
         row, col = pos
-
         if @grid[row][col].display == "_"
-
             @grid[row][col].reveal
             return @grid[row][col].value
         end
@@ -61,7 +58,6 @@ attr_reader :grid
     end
 
     def cheat
-
         print "  " + (0...@grid.length).to_a.join(" ")
         puts
 
