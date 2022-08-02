@@ -27,7 +27,9 @@ class Game
             
             puts "Enter another guess: "
             begin
-            guess_2 = gets.chomp.split.map(&:to_i)
+            input = gets.chomp
+            @board.cheat if input == "cheat"
+            guess_2 = input.split.map(&:to_i)
 
             raise ArgumentError.new if guess_2 == guess_1
             second_guess = @board.reveal(guess_2)
